@@ -33,7 +33,7 @@ const Navbar = ({ className }: { className?: string }) => {
 
         <MenuItem setActive={setActive} active={active} item="Programs">
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/beginners-beat">Beginner's Beat</HoveredLink>
+            <HoveredLink href="/beginners-beat">Beginner&apos;s Beat</HoveredLink>
             <HoveredLink href="/harmony-hub-ensemble">
               Harmony Hub Ensemble
             </HoveredLink>
