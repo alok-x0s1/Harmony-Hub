@@ -2,6 +2,7 @@
 import Link from "next/link";
 import courseData from "../data/music_courses.json";
 import { BackgroundGradient } from "./ui/background-gradient";
+import Image from "next/image";
 
 interface Course {
   id: number;
@@ -11,6 +12,7 @@ interface Course {
   price: number;
   instructor: string;
   isFeatured: boolean;
+  image: string;
 }
 
 const FeaturedCourses = () => {
@@ -41,7 +43,19 @@ const FeaturedCourses = () => {
                   <p className="text-sm text-neutral-600 dark:text-neutral-400 flex-grow">
                     {course.description}
                   </p>
-                  <Link href={`/courses/${course.slug}`} className="mt-6 border py-2 px-4 rounded-md">Learn More</Link>
+                  <Image
+                    src={course.image}
+                    height="1000"
+                    width="1000"
+                    className="h-60 my-4 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                    alt={course.title}
+                  />
+                  <Link
+                    href={`/courses/`}
+                    className="border py-2 px-4 rounded-md"
+                  >
+                    Learn More
+                  </Link>
                 </div>
               </BackgroundGradient>
             </div>
@@ -50,12 +64,13 @@ const FeaturedCourses = () => {
       </div>
 
       <div className="mt-20 text-center">
-        <Link
-          href={"/courses"}
-          className="px-4 py-2 rounded border border-neutral-600 text-neutral-700 bg-white hover:bg-gray-100 transition duration-200"
-        >
-          View All courses
-        </Link>
+      <Link
+        href="/courses"
+        className="relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-medium text-white transition-all duration-300 bg-gradient-to-r from-blue-500 to-green-500 rounded-md shadow-lg group hover:from-green-500 hover:to-blue-500"
+      >
+        <span className="absolute inset-0 w-full h-full transition-transform duration-300 transform bg-white opacity-10 -translate-x-full group-hover:translate-x-0"></span>
+        <span className="relative">View All Courses</span>
+      </Link>
       </div>
     </div>
   );
